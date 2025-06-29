@@ -1,7 +1,6 @@
 package com.app.contactbook.entity;
 
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity
 @Table(uniqueConstraints = {
@@ -13,8 +12,7 @@ public class Contact {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String firstName;
-    private String lastName;
+    private String name;
     private String email;
     private String phoneNumber;
 
@@ -26,20 +24,12 @@ public class Contact {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {

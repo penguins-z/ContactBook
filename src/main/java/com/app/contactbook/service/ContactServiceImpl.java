@@ -4,7 +4,6 @@ import com.app.contactbook.entity.Contact;
 import com.app.contactbook.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.app.contactbook.service.ContactServiceInterface;
 import com.app.contactbook.exception.ContactNotFoundException;
 import java.util.List;
 
@@ -55,8 +54,7 @@ public class ContactServiceImpl implements ContactServiceInterface {
         Contact existingContact = contactRepository.findById(id).orElseThrow(() ->
                 new ContactNotFoundException(id));
 
-        existingContact.setFirstName(updatedContact.getFirstName());
-        existingContact.setLastName(updatedContact.getLastName());
+        existingContact.setName(updatedContact.getName());
         existingContact.setEmail(updatedContact.getEmail());
         existingContact.setPhoneNumber(updatedContact.getPhoneNumber());
 
